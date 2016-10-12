@@ -1,0 +1,15 @@
+{
+  "name": "mockbot",
+  "version": "1.0.0",
+  "description": "A Discord bot to mock other users",
+  "main": "mockbot.js",
+  "scripts": {
+    "start": "node mockbot.js"
+  },
+  "author": "lunarca",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^9.2.0",
+    "pos": "^0.4.2"
+  }
+}

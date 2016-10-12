@@ -1,0 +1,6 @@
+mockbot:
+  build: .
+  volumes:
+    - ".:/usr/src/app"
+  environment:
+    - MOCKBOT_LOGIN=TEST
