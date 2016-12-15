@@ -2,11 +2,6 @@ var Discord = require("discord.js");
 var bot = new Discord.Client();
 var pos = require('pos');
 
-// Clients
-// MASE - 102539210325495808
-// lunarca - 102583860872630272
-// shakunetsu - 167005796251598849
-
 var lastWord = "";
 var mock = false;
 var lastMessage = "";

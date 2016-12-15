@@ -1,12 +1,14 @@
 FROM node:6.7.0
 MAINTAINER lunarca
 
-RUN mkdir -p /usr/src/app 
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/mockbot 
+WORKDIR /usr/src/mockbot
 
-COPY package.json /usr/src/app/
-RUN npm install
+ADD package.json .
+RUN npm install --production
 
-COPY . /usr/src/app
+ADD . /usr/src/mockbot
+
+CMD ["ls", "/usr/src/mockbot"]
 
 CMD ["npm", "start"]
