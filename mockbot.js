@@ -1,6 +1,7 @@
 var Discord = require("discord.js");
 var bot = new Discord.Client();
 var pos = require('pos');
+var dateformat = require('dateformat');
 
 var lastWord = "";
 var mock = false;
@@ -69,6 +70,10 @@ bot.on("message", msg => {
         msg.channel.sendMessage("Fine @YaBoiiWeston#9333 here it is.");
         msg.channel.sendMessage("https://www.youtube.com/watch?v=du-TY1GUFGk");
     }
+
+	if (msg.content.startsWith("!report")) {
+		sendReport(msg);
+	}
 });
 
 bot.on('ready', () => {
@@ -268,4 +273,19 @@ function help(message) {
         "!give\t-- ༼ つ ◕\\_◕ ༽つ GIVE SA\n"+
         "!wednesday\t-- FINE EASTON HERE IT IS\n";
     message.channel.sendMessage(help);
+}
+
+function sendReport(message) {
+	var reportChannel = message.guild.channels.find("name", "reports");
+	
+	reportChannel.sendMessage(generateReport(message));
+}
+
+function generateReport(message) {
+	var reportDate = dateformat(new Date(), "mm/dd/yyyy hh:mm TT Z");
+	var chunks = message.content.split(" ");
+	var target = chunks[1];
+	var report = chunks.slice(2).join(" ");
+
+	return reportDate + "| " + message.author + " --> " + target + ": " + report;
 }
